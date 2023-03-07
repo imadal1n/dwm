@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 #include "gaplessgrid.c"
+#include "fibonacci.c"
 
 
 /* appearance */
@@ -49,6 +50,9 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "###",      gaplessgrid },
+	{ "[@]",      spiral },
+	{ "[\\]",     dwindle },
+
 };
 
 /* key definitions */
@@ -85,6 +89,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout, 	   {.v = &layouts[4]} },
+	{ MODKEY|ShiftMask,             XK_r,      setlayout, 	   {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
